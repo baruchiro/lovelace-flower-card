@@ -14,8 +14,8 @@ export const style = css`
 
 }
 .attribute ha-icon {
-  margin-right: 10px;
-  margin-left: 5px;
+  margin-inline-end: 10px;
+  margin-inline-start: 5px;
 }
 .attribute {
   white-space: nowrap;
@@ -24,11 +24,11 @@ export const style = css`
   width: 50%;
 }
 #battery {
-  float: right;
+  float: inline-end;
   display: flex;
   align-items: center;
   gap: 4px;
-  margin-right: 16px;
+  margin-inline-end: 16px;
   margin-top: -15px;
 }
 .header {
@@ -51,7 +51,7 @@ export const style = css`
   margin-left: 16px;
   margin-right: 16px;
   margin-top: -32px;
-  float: left;
+  float: inline-start;
   box-shadow: var( --ha-card-box-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) );
 }
 .header-compact > img {
@@ -62,7 +62,7 @@ export const style = css`
   margin-left: 8px;
   margin-right: 8px;
   margin-top: 0px;
-  float: left;
+  float: inline-start;
   box-shadow: var( --ha-card-box-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) );
 }
 .header.no-image {
@@ -79,7 +79,7 @@ export const style = css`
 .header.no-image > #name,
 .header-compact.no-image > #name {
   margin-top: 0;
-  margin-left: 0;
+  margin-inline-start: 0;
 }
 .header > #name {
   font-weight: bold;
@@ -109,7 +109,7 @@ export const style = css`
   color: #8c96a5;
   font-size: 0.8em;
   margin-top: 0px;
-  margin-right: 4px;
+  margin-inline-end: 4px;
   opacity: 0.4;
   display: block;
   overflow: hidden;
@@ -125,12 +125,12 @@ export const style = css`
 }
 .meter.red {
   flex-grow: 1;
-  margin-right: 5px;
+  margin-inline-end: 5px;
   max-width: 5%
 }
 .meter.green {
   flex-grow: 10;
-  margin-right: 5px;
+  margin-inline-end: 5px;
   max-width: 40%
 }
 .attribute.tooltip.width-100 .meter.green {
@@ -181,17 +181,22 @@ export const style = css`
   transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
   transition: opacity 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1), -webkit-transform 0.2s cubic-bezier(0.64, 0.09, 0.08, 1);
 }
+/* A numeric range, not prose: inherited RTL renders "(20 ~ 60 %)" as "(% 60 ~ 20)".
+   Bar tooltips only — badge and battery tips carry names that may truly be RTL. */
+.attribute.tooltip .tip {
+  direction: ltr;
+}
 .battery.tooltip .tip {
   top: 2em;
 }
 .extra-badge {
   display: inline-block;
-  margin-right: 8px;
+  margin-inline-end: 8px;
   cursor: pointer;
 }
 .extra-badge .badge-text {
   font-size: 0.9em;
-  margin-left: 2px;
+  margin-inline-start: 2px;
   vertical-align: middle;
 }
 .extra-badge.tooltip .tip {
@@ -207,7 +212,7 @@ export const style = css`
 .width-100 {
   width: 100%;
   margin-bottom: 3px;
-  margin-right: 5px;
+  margin-inline-end: 5px;
 }
 @media (max-width: 600px) {
   .header > .unit {
