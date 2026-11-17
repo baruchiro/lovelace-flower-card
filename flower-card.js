@@ -23,6 +23,7 @@
   width: 50%;
 }
 #battery {
+  float: right;
   float: inline-end;
   display: flex;
   align-items: center;
@@ -50,6 +51,7 @@
   margin-left: 16px;
   margin-right: 16px;
   margin-top: -32px;
+  float: left;
   float: inline-start;
   box-shadow: var( --ha-card-box-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) );
 }
@@ -61,8 +63,16 @@
   margin-left: 8px;
   margin-right: 8px;
   margin-top: 0px;
+  float: left;
   float: inline-start;
   box-shadow: var( --ha-card-box-shadow, 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2) );
+}
+:host-context([dir="rtl"]) .header > img,
+:host-context([dir="rtl"]) .header-compact > img {
+  float: right;
+}
+:host-context([dir="rtl"]) #battery {
+  float: left;
 }
 .header.no-image {
   height: auto;
